@@ -1,12 +1,8 @@
 package main
 
 import (
-	"context"
 	"embed"
-	"fmt"
 
-	"github.com/docker/docker/api/types"
-	"github.com/docker/docker/client"
 	"github.com/wailsapp/wails/v2"
 	"github.com/wailsapp/wails/v2/pkg/options"
 	"github.com/wailsapp/wails/v2/pkg/options/assetserver"
@@ -16,9 +12,6 @@ import (
 var assets embed.FS
 
 func main() {
-	// My Test functions
-	myTest()
-
 	// Create an instance of the app structure
 	app := NewApp()
 
@@ -41,22 +34,5 @@ func main() {
 
 	if err != nil {
 		println("Error:", err.Error())
-	}
-}
-
-func myTest() {
-	cli, err := client.NewClientWithOpts(client.FromEnv)
-	if err != nil {
-		panic(err)
-	}
-
-	containers, err := cli.ContainerList(context.Background(), types.ContainerListOptions{})
-	if err != nil {
-		panic(err)
-	}
-
-	for _, container := range containers {
-		fmt.Printf("Container ID: %s\n", container.ID)
-		fmt.Printf("Container Name: %s\n", container.Names[0])
 	}
 }
