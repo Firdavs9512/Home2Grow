@@ -21,6 +21,11 @@ func (a *App) startup(ctx context.Context) {
 	a.ctx = ctx
 }
 
+// ApplicationMenu returns the menu for the application
+func (a *App) ApplicationMenu() {
+	//
+}
+
 // Greet returns a greeting for the given name
 func (a *App) Greet(name string) string {
 	return fmt.Sprintf("Hello %s, It's show time!", name)
