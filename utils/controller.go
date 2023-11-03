@@ -9,16 +9,16 @@ import (
 	"github.com/docker/docker/client"
 )
 
-func main() {
-	fmt.Println("__________ Docker Client __________")
+// func main() {
+// 	fmt.Println("__________ Docker Client __________")
 
-	cli, err := client.NewClientWithOpts(client.FromEnv)
-	if err != nil {
-		panic(err)
-	}
+// 	cli, err := client.NewClientWithOpts(client.FromEnv)
+// 	if err != nil {
+// 		panic(err)
+// 	}
 
-	containerShell(cli)
-}
+// 	containerShell(cli)
+// }
 
 func containerList(cli *client.Client) {
 	containers, err := cli.ContainerList(context.Background(), types.ContainerListOptions{})
