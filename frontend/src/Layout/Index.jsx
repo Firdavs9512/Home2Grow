@@ -5,8 +5,8 @@ import { BrowserOpenURL } from "../../wailsjs/runtime";
 
 const Index = () => {
   return (
-    <div>
-      <div className="w-full grid grid-cols-10 h-screen cursor-default">
+    <div className="relative">
+      <div className="w-full grid grid-cols-12 h-screen cursor-default">
         <div className="col-span-3 border-r-2 border-r-gray-600 p-3">
           <div className="mt-8 mx-3">
             <h5 className="text-sm text-slate-400 font-semibold mb-3 ml-3">
@@ -74,7 +74,7 @@ const Index = () => {
             </ul>
           </div>
         </div>
-        <div className="col-span-7 p-3">
+        <div className="col-span-9 p-3">
           <Outlet />
         </div>
       </div>

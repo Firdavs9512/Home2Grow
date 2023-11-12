@@ -6,6 +6,14 @@ export function ApplicationMenu() {
   return window['go']['main']['App']['ApplicationMenu']();
 }
 
+export function ExampleApp() {
+  return window['go']['main']['App']['ExampleApp']();
+}
+
 export function Greet(arg1) {
   return window['go']['main']['App']['Greet'](arg1);
+}
+
+export function StartUbuntuContainer() {
+  return window['go']['main']['App']['StartUbuntuContainer']();
 }

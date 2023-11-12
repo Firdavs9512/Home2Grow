@@ -20,7 +20,7 @@ import (
 // 	containerShell(cli)
 // }
 
-func containerList(cli *client.Client) {
+func ContainerList(cli *client.Client) {
 	containers, err := cli.ContainerList(context.Background(), types.ContainerListOptions{})
 	if err != nil {
 		panic(err)
@@ -32,7 +32,7 @@ func containerList(cli *client.Client) {
 	}
 }
 
-func imageList(cli *client.Client) {
+func ImageList(cli *client.Client) {
 	images, err := cli.ImageList(context.Background(), types.ImageListOptions{})
 	if err != nil {
 		panic(err)
@@ -44,8 +44,8 @@ func imageList(cli *client.Client) {
 	}
 }
 
-func imagePull(cli *client.Client) {
-	reader, err := cli.ImagePull(context.Background(), "alpine:latest", types.ImagePullOptions{})
+func ImagePull(cli *client.Client, imageName string) {
+	reader, err := cli.ImagePull(context.Background(), imageName, types.ImagePullOptions{})
 	if err != nil {
 		panic(err)
 	}
@@ -62,7 +62,7 @@ func imagePull(cli *client.Client) {
 	}
 }
 
-func containerCreate(cli *client.Client) {
+func ContainerCreate(cli *client.Client) {
 	containerConfig := &container.Config{
 		Image: "alpine:3.16.3",
 	}
@@ -80,28 +80,28 @@ func containerCreate(cli *client.Client) {
 	}
 }
 
-func containerStart(cli *client.Client) {
+func ContainerStart(cli *client.Client) {
 	err := cli.ContainerStart(context.Background(), "nginx-test", types.ContainerStartOptions{})
 	if err != nil {
 		panic(err)
 	}
 }
 
-func containerStop(cli *client.Client) {
+func ContainerStop(cli *client.Client) {
 	err := cli.ContainerStop(context.Background(), "nginx-test", container.StopOptions{})
 	if err != nil {
 		panic(err)
 	}
 }
 
-func containerRemove(cli *client.Client) {
+func ContainerRemove(cli *client.Client) {
 	err := cli.ContainerRemove(context.Background(), "nginx-test", types.ContainerRemoveOptions{})
 	if err != nil {
 		panic(err)
 	}
 }
 
-func containerLogs(cli *client.Client) {
+func ContainerLogs(cli *client.Client) {
 	reader, err := cli.ContainerLogs(context.Background(), "nginx-test", types.ContainerLogsOptions{
 		ShowStdout: true,
 		ShowStderr: true,
@@ -124,14 +124,14 @@ func containerLogs(cli *client.Client) {
 	}
 }
 
-func imageRemove(cli *client.Client) {
+func ImageRemove(cli *client.Client) {
 	_, err := cli.ImageRemove(context.Background(), "alpine:latest", types.ImageRemoveOptions{})
 	if err != nil {
 		panic(err)
 	}
 }
 
-func containerInspect(cli *client.Client) {
+func ContainerInspect(cli *client.Client) {
 	container, err := cli.ContainerInspect(context.Background(), "nginx-test")
 	if err != nil {
 		panic(err)
@@ -143,7 +143,7 @@ func containerInspect(cli *client.Client) {
 	fmt.Printf("Container State: %s\n", container.State.Status)
 }
 
-func containerExec(cli *client.Client) {
+func ContainerExec(cli *client.Client) {
 	execConfig := types.ExecConfig{
 		AttachStdout: true,
 		AttachStderr: true,
@@ -164,7 +164,7 @@ func containerExec(cli *client.Client) {
 }
 
 // Real time shell in container
-func containerShell(cli *client.Client) {
+func ContainerShell(cli *client.Client) {
 	execConfig := types.ExecConfig{
 		AttachStdout: true,
 		AttachStderr: true,

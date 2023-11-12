@@ -3,4 +3,8 @@
 
 export function ApplicationMenu():Promise<void>;
 
+export function ExampleApp():Promise<{[key: string]: string}>;
+
 export function Greet(arg1:string):Promise<string>;
+
+export function StartUbuntuContainer():Promise<{[key: string]: string}>;

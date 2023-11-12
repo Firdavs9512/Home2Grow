@@ -20,8 +20,8 @@ func main() {
 	// Create application with options
 	err := wails.Run(&options.App{
 		Title:            "Home2Grow",
-		Width:            824,
-		Height:           568,
+		Width:            1024,
+		Height:           668,
 		Fullscreen:       false,
 		DisableResize:    true,
 		StartHidden:      false,
